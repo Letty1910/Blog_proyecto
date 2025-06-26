@@ -3,74 +3,48 @@
 {% block title %}Editar Perfil{% endblock %}
 
 {% block content %}
-<h2>Editar Perfil</h2>
+<div class="container mt-5">
+  <div class="card p-4 shadow-sm mx-auto" style="max-width: 600px;">
+    <h2 class="text-center mb-4">Editar Perfil</h2>
 
-<style>
-    form {
-        max-width: 500px;
-        margin: auto;
-        padding: 1em;
-        background-color: #f5f5f5;
-        border-radius: 10px;
-    }
-    form p {
-        margin-bottom: 1em;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="date"],
-    textarea {
-        width: 100%;
-        padding: 0.5em;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    input[type="file"] {
-        border: none;
-    }
-    button {
-        background-color: #007bff;
-        color: white;
-        padding: 0.5em 1.5em;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: #0056b3;
-    }
-</style>
+    <form method="post" enctype="multipart/form-data" id="profileForm">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.as_p }}
+      </div>
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      </div>
+    </form>
 
-<form method="post" enctype="multipart/form-data" id="profileForm">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar cambios</button>
-</form>
-
-<p style="text-align: center;"><a href="{% url 'profile' %}">Volver al perfil</a></p>
+    <div class="text-center mt-3">
+      <a href="{% url 'profile' %}" class="btn btn-link">Volver al perfil</a>
+    </div>
+  </div>
+</div>
 
 <script>
-    document.getElementById('profileForm').addEventListener('submit', function(event) {
-        const fechaNacimiento = document.querySelector('input[name="fecha_nacimiento"]');
-        const avatarInput = document.querySelector('input[type="file"]');
+  document.getElementById('profileForm').addEventListener('submit', function(event) {
+    const fechaNacimiento = document.querySelector('input[name="fecha_nacimiento"]');
+    const avatarInput = document.querySelector('input[type="file"]');
 
-        if (fechaNacimiento && fechaNacimiento.value) {
-            const selectedDate = new Date(fechaNacimiento.value);
-            const today = new Date();
-            if (selectedDate > today) {
-                alert("La fecha de nacimiento no puede ser en el futuro.");
-                event.preventDefault();
-                return;
-            }
-        }
+    if (fechaNacimiento && fechaNacimiento.value) {
+      const selectedDate = new Date(fechaNacimiento.value);
+      const today = new Date();
+      if (selectedDate > today) {
+        alert("La fecha de nacimiento no puede ser en el futuro.");
+        event.preventDefault();
+        return;
+      }
+    }
 
-        if (avatarInput && avatarInput.files.length > 0) {
-            const file = avatarInput.files[0];
-            if (!file.type.startsWith('image/')) {
-                alert("El archivo seleccionado no es una imagen válida.");
-                event.preventDefault();
-            }
-        }
-    });
+    if (avatarInput && avatarInput.files.length > 0) {
+      const file = avatarInput.files[0];
+      if (!file.type.startsWith('image/')) {
+        alert("El archivo seleccionado no es una imagen válida.");
+        event.preventDefault();
+      }
+    }
+  });
 </script>
 {% endblock %}

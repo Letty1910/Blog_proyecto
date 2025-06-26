@@ -1,23 +1,91 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Acerca de mí{% endblock %}
+{% block title %}Acerca de Nosotros{% endblock %}
 
 {% block content %}
-<div class="about-container" style="max-width: 800px; margin: auto; padding: 2rem;">
-    <h1>Acerca de mí</h1>
-    <p>¡Hola! Bienvenido a mi blog personal. Aquí comparto artículos, ideas y proyectos sobre diversos temas que me apasionan, como programación, tecnología, diseño y mucho más.</p>
+<div class="about-container" style="max-width: 1100px; margin: auto; padding: 3.5rem 2rem;">
 
-    <h2>¿Quién soy?</h2>
-    <p>Soy un desarrollador apasionado por el aprendizaje continuo. Este blog es una forma de compartir lo que aprendo, colaborar con otros y documentar mi crecimiento profesional y personal.</p>
+    <h1 style="
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        color: #1d3b29;
+        margin-bottom: 0.8rem;
+    ">
+        Equipo detrás de <em>Datos para el Campo</em>
+    </h1>
+    <p style="
+        text-align: center;
+        color: #444;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-inline: auto;
+    ">
+        Conocé a quienes impulsan los datos y el conocimiento productivo en <strong>CONCI</strong>.
+    </p>
 
-    <h2>¿Qué encontrarás aquí?</h2>
-    <ul>
-        <li>Artículos técnicos y tutoriales</li>
-        <li>Proyectos personales y colaborativos</li>
-        <li>Reflexiones sobre desarrollo, creatividad y productividad</li>
-    </ul>
+    <!-- === Leticia Gamba === -->
+    <div class="profile-card" style="
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 3.5rem;
+        background-color: #ffffffdd;
+        padding: 28px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        transition: transform 0.3s;
+    " onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+        <img src="{% static 'img/Lety.jpeg' %}" alt="Leticia Gamba" style="
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #367C2B;
+        ">
+        <div style="flex: 1;">
+            <h2 style="margin-bottom: 6px; font-family: 'Merriweather', serif; font-size: 1.6rem;">Leti Gamba</h2>
+            <p style="margin: 0 0 12px; color: #2e7d32; font-weight: 600;">Responsable del Área de Datos en CONCI</p>
+            <p style="margin-bottom: 12px; line-height: 1.6;">Leticia lidera el análisis territorial y de datos en CONCI, articulando sistemas como ArcGIS, Survey123 y Power BI para convertir datos en decisiones comerciales.</p>
+            <div class="social-icons" style="margin-top: 10px;">
+                <a href="https://www.instagram.com/leticia.gamba" target="_blank" style="color: #c13584; font-size: 24px; margin-right: 16px;"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/leticiagamba" target="_blank" style="color: #0077b5; font-size: 24px;"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
 
-    <h2>Contacto</h2>
-    <p>¿Te gustaría ponerte en contacto? Puedes <a href="{% url 'inbox' %}">enviarme un mensaje</a> si estás registrado o seguirme desde mi perfil.</p>
+    <!-- === Leandro Racioppi === -->
+    <div class="profile-card" style="
+        display: flex;
+        flex-wrap: wrap-reverse;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 3.5rem;
+        background-color: #ffffffdd;
+        padding: 28px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        transition: transform 0.3s;
+    " onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+        <img src="{% static 'img/Leandro.jpeg' %}" alt="Leandro Racioppi" style="
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1e4220;
+        ">
+        <div style="flex: 1;">
+            <h2 style="margin-bottom: 6px; font-family: 'Merriweather', serif; font-size: 1.6rem;">Lean Racioppi</h2>
+            <p style="margin: 0 0 12px; color: #2e7d32; font-weight: 600;">Ing. Agrónomo y Especialista en Sistemas Productivos</p>
+            <p style="margin-bottom: 12px; line-height: 1.6;">Leandro acompaña al equipo en el relevamiento técnico-productivo, conectando información de campo con estrategias comerciales efectivas.</p>
+            <div class="social-icons" style="margin-top: 10px;">
+                <a href="https://www.linkedin.com/in/leandroracioppi" target="_blank" style="color: #0077b5; font-size: 24px;"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
 </div>
 {% endblock %}

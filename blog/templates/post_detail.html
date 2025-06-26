@@ -1,17 +1,39 @@
 {% extends 'base.html' %}
+
 {% block content %}
+<div class="post-detail-container" style="max-width: 900px; margin: 60px auto; padding: 2rem; background-color: #ffffffdd; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-family: 'Inter', sans-serif;">
+
   <article>
-    <h2>{{ object.titulo }}</h2>
-    <h4>{{ object.subtitulo }}</h4>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #234F1E; margin-bottom: 0.5rem;">
+      {{ object.titulo }}
+    </h2>
+    <h4 style="font-size: 1.3rem; color: #4b4b4b; font-weight: 500; margin-bottom: 1rem;">
+      {{ object.subtitulo }}
+    </h4>
+
     {% if object.imagen %}
-      <img src="{{ object.imagen.url }}" alt="Imagen del post" style="max-width:100%; height:auto;">
+      <img src="{{ object.imagen.url }}" alt="Imagen del post" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
     {% endif %}
-    <p>{{ object.contenido|safe }}</p>
-    <p><small>Publicado por {{ object.autor.username }} el {{ object.fecha }}</small></p>
+
+    <div style="font-size: 1.1rem; color: #333; line-height: 1.8; margin-bottom: 2rem;">
+      {{ object.contenido|safe }}
+    </div>
+
+    <p style="font-size: 0.9rem; color: #777;">
+      Publicado por <strong>{{ object.autor.username }}</strong> el {{ object.fecha }}
+    </p>
 
     {% if user == object.autor %}
-      <a href="{% url 'page_edit' object.pk %}">Editar</a>
-      <a href="{% url 'page_delete' object.pk %}">Eliminar</a>
+    <div style="margin-top: 20px; display: flex; gap: 15px;">
+      <a href="{% url 'page_edit' object.pk %}" style="background-color: #2e7d32; color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: background-color 0.3s;">
+        ✏️ Editar
+      </a>
+      <a href="{% url 'page_delete' object.pk %}" style="background-color: #c62828; color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: background-color 0.3s;">
+        🗑️ Eliminar
+      </a>
+    </div>
     {% endif %}
   </article>
+
+</div>
 {% endblock %}

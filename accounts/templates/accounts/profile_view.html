@@ -1,9 +1,25 @@
 {% extends 'base.html' %}
- {% block content %}
-     <h2>Perfil de {{ profile.user.username }}</h2>
-     {% if profile.avatar %}<img src="{{ profile.avatar.url }}" alt="Avatar">{% endif %}
-     <p>Email: {{ profile.user.email }}</p>
-     <p>Biografía: {{ profile.biografia }}</p>
-     <p>Fecha de nacimiento: {{ profile.fecha_nacimiento }}</p>
-     <a href="{% url 'profile_edit' %}">Editar Perfil</a>
- {% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card profile-card shadow-sm p-4">
+      <h2 class="text-center mb-4">Perfil de {{ profile.user.username }}</h2>
+
+      {% if profile.avatar %}
+        <div class="text-center mb-3">
+          <img src="{{ profile.avatar.url }}" alt="Avatar" class="rounded-circle img-thumbnail" width="150" height="150">
+        </div>
+      {% endif %}
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Email:</strong> {{ profile.user.email }}</li>
+        <li class="list-group-item"><strong>Biografía:</strong> {{ profile.biografia }}</li>
+        <li class="list-group-item"><strong>Fecha de nacimiento:</strong> {{ profile.fecha_nacimiento }}</li>
+      </ul>
+
+      <div class="text-center mt-4">
+        <a href="{% url 'profile_edit' %}" class="btn btn-outline-primary">Editar Perfil</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

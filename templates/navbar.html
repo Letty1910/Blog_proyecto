@@ -1,16 +1,22 @@
-<nav>
-     <a href="{% url 'home' %}">Inicio</a>
-     <a href="{% url 'pages' %}">Páginas</a>
-     <a href="{% url 'about' %}">Acerca de mí</a>
-     {% if user.is_authenticated %}
-         <a href="{% url 'profile' %}">Perfil</a>
-         <a href="{% url 'inbox' %}">Mensajes</a>
-        <form action="{% url 'logout' %}" method="post" style="display: inline;">
-  {% csrf_token %}
-  <button type="submit" style="background: none; border: none; color: inherit; font: inherit; cursor: pointer; padding: 0;">Salir</button>
-</form> 
-     {% else %}
-         <a href="{% url 'login' %}">Entrar</a>
-         <a href="{% url 'register' %}">Registrarse</a>
-     {% endif %}
- </nav>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <a href="{% url 'home' %}">Inicio</a>
+      <a href="{% url 'pages' %}">Páginas</a>
+      <a href="{% url 'about' %}">Acerca de nosotros</a>
+    </div>
+    <div class="nav-right">
+      {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}">Perfil</a>
+        <a href="{% url 'inbox' %}">Mensajes</a>
+        <form action="{% url 'logout' %}" method="post" class="logout-form">
+          {% csrf_token %}
+          <button type="submit">Salir</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}">Entrar</a>
+        <a href="{% url 'register' %}">Registrarse</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
