@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+ {% block content %}
+     <h2>Perfil de {{ profile.user.username }}</h2>
+     {% if profile.avatar %}<img src="{{ profile.avatar.url }}" alt="Avatar">{% endif %}
+     <p>Email: {{ profile.user.email }}</p>
+     <p>Biografía: {{ profile.biografia }}</p>
+     <p>Fecha de nacimiento: {{ profile.fecha_nacimiento }}</p>
+     <a href="{% url 'profile_edit' %}">Editar Perfil</a>
+ {% endblock %}

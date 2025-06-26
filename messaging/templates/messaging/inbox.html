@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+ {% block content %}
+     <h2>Bandeja de entrada</h2>
+     {% for mensaje in mensajes %}
+         <div>
+             <p><strong>De:</strong> {{ mensaje.remitente.username }}</p>
+             <p>{{ mensaje.contenido }}</p>
+             <p><small>{{ mensaje.fecha_envio }}</small></p>
+         </div>
+     {% empty %}
+         <p>No tienes mensajes.</p>
+     {% endfor %}
+ {% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block content %}
+  <div class="register-card">
+    <div class="register-header">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#FFD700" viewBox="0 0 24 24">
+        <path d="M12 2C8 2 4 5 4 9c0 3 2 5 4 7v6h8v-6c2-2 4-4 4-7 0-4-4-7-8-7zm0 2c3.313 0 6 2.239 6 5 0 2.076-1.404 3.655-3.5 5.708V20h-5v-5.292C7.404 12.655 6 11.076 6 9c0-2.761 2.687-5 6-5z"/>
+      </svg>
+      <h2>Iniciar sesión</h2>
+    </div>
+
+    {% if form.errors %}
+      <p style="color: red;">Usuario o contraseña incorrectos.</p>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Entrar">
+    </form>
+
+    <p style="margin-top: 15px;">¿No tenés cuenta? <a href="{% url 'register' %}">Registrate acá</a></p>
+  </div>
+{% endblock %}

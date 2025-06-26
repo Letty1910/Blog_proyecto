@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+ {% block content %}
+     {% for post in posts %}
+         <h2>{{ post.titulo }}</h2>
+         <p>{{ post.subtitulo }}</p>
+         <a href="{% url 'page_detail' post.pk %}">Leer más</a>
+         {% if user == post.autor %}
+             <a href="{% url 'page_edit' post.pk %}">Editar</a>
+             <a href="{% url 'page_delete' post.pk %}">Eliminar</a>
+         {% endif %}
+     {% empty %}
+         <p>No hay páginas aún.</p>
+     {% endfor %}
+ {% endblock %}

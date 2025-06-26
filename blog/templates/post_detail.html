@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+  <article>
+    <h2>{{ object.titulo }}</h2>
+    <h4>{{ object.subtitulo }}</h4>
+    {% if object.imagen %}
+      <img src="{{ object.imagen.url }}" alt="Imagen del post" style="max-width:100%; height:auto;">
+    {% endif %}
+    <p>{{ object.contenido|safe }}</p>
+    <p><small>Publicado por {{ object.autor.username }} el {{ object.fecha }}</small></p>
+
+    {% if user == object.autor %}
+      <a href="{% url 'page_edit' object.pk %}">Editar</a>
+      <a href="{% url 'page_delete' object.pk %}">Eliminar</a>
+    {% endif %}
+  </article>
+{% endblock %}

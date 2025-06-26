@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Blog{% endblock %}</title>
+
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <!-- Tu hoja de estilos personalizada -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+      body {
+        background-image: url("{% static 'https://img.freepik.com/foto-gratis/paisaje-prado-soleado_1112-134.jpg?semt=ais_hybrid&w=740' %}");
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+<header>
+  <div class="logo-sello">
+    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="#FFD700">
+      <path d="M12 2C8 2 4 5 4 9c0 3 2 5 4 7v6h8v-6c2-2 4-4 4-7 0-4-4-7-8-7zm0 2c3.313 0 6 2.239 6 5 0 2.076-1.404 3.655-3.5 5.708V20h-5v-5.292C7.404 12.655 6 11.076 6 9c0-2.761 2.687-5 6-5z"/>
+    </svg>
+    <h1>Bienvenidos al espíritu del campo</h1>
+  </div>
+ </header>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

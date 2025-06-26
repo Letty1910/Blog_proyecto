@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Acerca de mí{% endblock %}
+
+{% block content %}
+<div class="about-container" style="max-width: 800px; margin: auto; padding: 2rem;">
+    <h1>Acerca de mí</h1>
+    <p>¡Hola! Bienvenido a mi blog personal. Aquí comparto artículos, ideas y proyectos sobre diversos temas que me apasionan, como programación, tecnología, diseño y mucho más.</p>
+
+    <h2>¿Quién soy?</h2>
+    <p>Soy un desarrollador apasionado por el aprendizaje continuo. Este blog es una forma de compartir lo que aprendo, colaborar con otros y documentar mi crecimiento profesional y personal.</p>
+
+    <h2>¿Qué encontrarás aquí?</h2>
+    <ul>
+        <li>Artículos técnicos y tutoriales</li>
+        <li>Proyectos personales y colaborativos</li>
+        <li>Reflexiones sobre desarrollo, creatividad y productividad</li>
+    </ul>
+
+    <h2>Contacto</h2>
+    <p>¿Te gustaría ponerte en contacto? Puedes <a href="{% url 'inbox' %}">enviarme un mensaje</a> si estás registrado o seguirme desde mi perfil.</p>
+</div>
+{% endblock %}
