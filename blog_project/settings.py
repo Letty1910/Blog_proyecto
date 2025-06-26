@@ -90,6 +90,7 @@ USE_TZ = True
 # Archivos estáticos
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Solo si pensás hacer collectstatic
 
 # Archivos subidos por usuarios
 MEDIA_URL = '/media/'
