@@ -7,8 +7,8 @@ from blog.views import about  # Asegúrate de que la vista 'about' esté en blog
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),           # URLs para Home y páginas
-    path('accounts/', include('accounts.urls')),  # URLs para registro, login, perfil
-    path('messaging/', include('messaging.urls')),  # URLs de mensajería
+    path('accounts/', include('accounts.urls', namespace='accounts')),  # URLs para registro, login, perfil
+    path('messaging/', include(('messaging.urls', 'messaging'), namespace='messaging')),  # URLs de mensajería
     path('about/', about, name='about'),      # Página "Acerca de mí"
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

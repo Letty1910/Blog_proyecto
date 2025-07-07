@@ -7,11 +7,21 @@
   <div class="card p-4 shadow-sm mx-auto" style="max-width: 600px;">
     <h2 class="text-center mb-4">Editar Perfil</h2>
 
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success text-center">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    {% if request.user.profile.avatar %}
+      <div class="text-center mb-3">
+        <img src="{{ request.user.profile.avatar.url }}" class="img-thumbnail" width="140" alt="Avatar actual">
+      </div>
+    {% endif %}
+
     <form method="post" enctype="multipart/form-data" id="profileForm">
       {% csrf_token %}
-      <div class="form-group">
-        {{ form.as_p }}
-      </div>
+      {{ form.as_p }}
       <div class="text-center mt-3">
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
       </div>

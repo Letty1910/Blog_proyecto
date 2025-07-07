@@ -7,15 +7,16 @@
     </div>
     <div class="nav-right">
       {% if user.is_authenticated %}
-        <a href="{% url 'profile' %}">Perfil</a>
-        <a href="{% url 'inbox' %}">Mensajes</a>
-        <form action="{% url 'logout' %}" method="post" class="logout-form">
+        <!-- PASO 1: Prefix accounts: -->
+        <a href="{% url 'accounts:profile' %}">Perfil</a>
+        <a href="{% url 'messaging:inbox' %}">Mensajes</a>
+        <form action="{% url 'accounts:logout' %}" method="post" class="logout-form">
           {% csrf_token %}
           <button type="submit">Salir</button>
         </form>
       {% else %}
-        <a href="{% url 'login' %}">Entrar</a>
-        <a href="{% url 'register' %}">Registrarse</a>
+        <a href="{% url 'accounts:login' %}">Entrar</a>
+        <a href="{% url 'accounts:register' %}">Registrarse</a>
       {% endif %}
     </div>
   </div>
