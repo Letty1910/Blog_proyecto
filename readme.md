@@ -1,4 +1,4 @@
-# 🌾 Mi Blog Campestre – Inspirado en John Deere
+# 🌾 Mi Blog – Inspirado en John Deere
 
 Un blog creado con Django que fusiona tecnología y estética rural. Ideal para quienes disfrutan del desarrollo web con alma de campo.
 
